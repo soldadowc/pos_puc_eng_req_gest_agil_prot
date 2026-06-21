@@ -1,0 +1,22 @@
+URL do board do Miro — Lean Inception + MVP Canvas (Processus)
+================================================================
+
+>>> SUBSTITUA A LINHA ABAIXO PELA URL PÚBLICA DO SEU BOARD DO MIRO <<<
+
+https://miro.com/app/board/XXXXXXXXXXXX/
+
+----------------------------------------------------------------
+Conteúdo que o board deve conter (ver docs/02-Lean-Inception.md):
+ 1. Kickoff / Visão alinhada
+ 2. Visão do Produto
+ 3. Produto É / Não É / Faz / Não Faz
+ 4. Personas
+ 5. Descoberta de Features (brainstorm)
+ 6. Revisão Técnica, de Negócio e de UX
+ 7. Jornadas do Usuário
+ 8. Sequenciador de Features
+ 9. MVP Canvas (artefato principal)
+
+IMPORTANTE: no Miro, abra "Share" > defina o acesso como
+"Anyone with the link can view" antes de publicar, e teste a URL
+em uma janela anônima para garantir o acesso público.

@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="pt-br"><head><meta charset="utf-8">
+<title>Sprint Backlog — Processus</title>
+<link rel="stylesheet" href="print.css"></head><body>
+
+<div class="cover">
+  <div class="badge">Sprint Backlog</div>
+  <h1>Processus</h1>
+  <h2>Sprint 1 — "Fluxo essencial do processo"</h2>
+  <div class="meta">
+    Sistema de Controle Processual<br>
+    Histórias detalhadas · Estimadas em Story Points · Critérios de aceitação<br>
+    22/06/2026 a 03/07/2026 · Sprint de 2 semanas<br>
+    Junho/2026
+  </div>
+</div>
+
+<h1 class="sec">1. Visão geral da Sprint</h1>
+<table>
+<tbody>
+<tr><th style="width:32%">Sprint</th><td>Sprint 1 — "Fluxo essencial do processo"</td></tr>
+<tr><th>Duração</th><td>2 semanas (10 dias úteis) — 22/06/2026 a 03/07/2026</td></tr>
+<tr><th>Time</th><td>Carla (Dev Sênior), Diego (Dev Pleno), Elena (Designer/QA); PO Ana e SM Bruno (50%)</td></tr>
+<tr><th>Capacidade estimada</th><td>~31 Story Points (velocidade inicial, a recalibrar)</td></tr>
+<tr><th>Compromisso (committed)</th><td>31 SP</td></tr>
+</tbody></table>
+
+<div class="dod-block">
+<b>🎯 Meta da Sprint (Sprint Goal):</b><br>
+Permitir que um usuário <b>faça login</b>, <b>cadastre um processo</b>, <b>consulte-o na lista</b>,
+<b>abra seu detalhe</b> e <b>registre andamentos</b> — entregando a primeira fatia vertical de valor
+ponta a ponta, em ambiente de homologação.</div>
+
+<h1 class="sec">2. Itens selecionados (Sprint Backlog)</h1>
+<table>
+<thead><tr><th>#</th><th>ID</th><th>Item</th><th>Tipo</th><th>SP</th><th>Responsável</th><th>Prior.</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>ENB-01</td><td>Setup de arquitetura, CI/CD e ambiente</td><td>Enabler</td><td>5</td><td>Carla</td><td><span class="tag must">Must</span></td></tr>
+<tr><td>2</td><td>US-01</td><td>Login no sistema</td><td>História</td><td>3</td><td>Carla</td><td><span class="tag must">Must</span></td></tr>
+<tr><td>3</td><td>US-02</td><td>Logout e expiração de sessão</td><td>História</td><td>2</td><td>Diego</td><td><span class="tag must">Must</span></td></tr>
+<tr><td>4</td><td>US-04</td><td>Cadastrar processo</td><td>História</td><td>5</td><td>Diego</td><td><span class="tag must">Must</span></td></tr>
+<tr><td>5</td><td>US-05</td><td>Listar e buscar processos</td><td>História</td><td>5</td><td>Carla</td><td><span class="tag must">Must</span></td></tr>
+<tr><td>6</td><td>US-06</td><td>Visualizar detalhe do processo</td><td>História</td><td>3</td><td>Diego</td><td><span class="tag must">Must</span></td></tr>
+<tr><td>7</td><td>US-09</td><td>Registrar andamento</td><td>História</td><td>5</td><td>Carla</td><td><span class="tag must">Must</span></td></tr>
+<tr><td>8</td><td>US-10</td><td>Visualizar linha do tempo de andamentos</td><td>História</td><td>3</td><td>Diego</td><td><span class="tag must">Must</span></td></tr>
+<tr><td colspan="4" style="text-align:right"><b>TOTAL</b></td><td><b>31</b></td><td colspan="2"></td></tr>
+</tbody></table>
+<p class="note">Suporte transversal: Elena entrega os wireframes (Figma) na abertura da Sprint, conduz
+os testes de aceitação (QA) e valida usabilidade/responsividade (RNF do DoD). Bruno facilita; Ana valida.</p>
+
+<h1 class="sec">3. Detalhamento das histórias (prontas — atendem ao DoR)</h1>
+
+<div class="story">
+<div class="id">ENB-01 · Setup de arquitetura, CI/CD e ambiente — Enabler <span class="sp">5 SP</span></div>
+<p><b>Descrição complementar:</b> item técnico habilitador. Prepara o esqueleto da aplicação (SPA + API
+REST + banco relacional), pipeline de CI (build+testes) e ambiente de homologação com HTTPS. Não
+entrega tela de negócio, mas é pré-requisito de todas as histórias.</p>
+<p><b>Tarefas:</b> repositório e estrutura · banco e modelo inicial (usuário, processo, andamento, prazo)
+· pipeline CI · deploy de homologação (HTTPS) · esqueleto de autenticação.</p>
+<div class="ac gherkin"><b>Critérios de aceitação:</b>
+<ul>
+<li><b>Dado</b> um push na branch principal, <b>quando</b> o pipeline roda, <b>então</b> build e testes executam com status visível.</li>
+<li><b>Dado</b> o deploy de homologação, <b>quando</b> acesso a URL, <b>então</b> a aplicação base responde por HTTPS.</li>
+</ul></div>
+</div>
+
+<div class="story">
+<div class="id">US-01 · Login no sistema <span class="sp">3 SP</span></div>
+<div class="quote">Como usuário do escritório, quero acessar o sistema com e-mail e senha, para proteger os dados dos processos e ter minhas ações identificadas.</div>
+<p><b>Descrição complementar:</b> tela de login com e-mail/senha, mensagens de erro e bloqueio temporário por tentativas. Base para a auditoria (identificação do autor das ações).</p>
+<div class="ac gherkin"><b>Critérios de aceitação:</b>
+<ul>
+<li><b>Dado</b> um usuário ativo, <b>quando</b> informa credenciais corretas, <b>então</b> é autenticado e vai para a lista de processos.</li>
+<li><b>Dado</b> credenciais inválidas, <b>quando</b> tenta logar, <b>então</b> vê "E-mail ou senha inválidos" e continua no login.</li>
+<li><b>Dado</b> 5 tentativas falhas consecutivas, <b>quando</b> erra de novo, <b>então</b> a conta é bloqueada por 15 min.</li>
+<li>Senha trafega por HTTPS e é verificada contra hash (RNF de segurança).</li>
+</ul></div>
+<p class="note"><b>Tarefas:</b> UI de login · endpoint de autenticação · hash de senha · bloqueio por tentativas · testes.</p>
+</div>
+
+<div class="story">
+<div class="id">US-02 · Logout e expiração de sessão <span class="sp">2 SP</span></div>
+<div class="quote">Como usuário, quero encerrar minha sessão manualmente ou por inatividade, para evitar acesso indevido em estações compartilhadas.</div>
+<div class="ac gherkin"><b>Critérios de aceitação:</b>
+<ul>
+<li><b>Dado</b> um usuário logado, <b>quando</b> clica em "Sair", <b>então</b> a sessão é encerrada e ele volta ao login.</li>
+<li><b>Dado</b> 30 min de inatividade, <b>quando</b> tenta uma ação, <b>então</b> é redirecionado ao login.</li>
+</ul></div>
+<p class="note"><b>Tarefas:</b> botão sair · invalidação de sessão/token · timeout de inatividade · testes.</p>
+</div>
+
+<div class="story">
+<div class="id">US-04 · Cadastrar processo <span class="sp">5 SP</span></div>
+<div class="quote">Como secretária ou advogado, quero cadastrar um novo processo com seus dados, para centralizar a informação em um único lugar.</div>
+<p><b>Descrição complementar:</b> formulário com validações. Campos: número (CNJ), autor, réu, área
+(cível/trabalhista/tributária), vara/comarca, valor da causa, responsável, observações. Data de
+cadastro e autor gravados automaticamente (auditoria).</p>
+<div class="ac gherkin"><b>Critérios de aceitação:</b>
+<ul>
+<li><b>Dado</b> o formulário com os obrigatórios, <b>quando</b> salvo, <b>então</b> o processo é criado e abro seu detalhe.</li>
+<li><b>Dado</b> número já cadastrado, <b>quando</b> tento salvar, <b>então</b> vejo aviso de duplicidade e não duplica.</li>
+<li><b>Dado</b> obrigatórios vazios (número, autor, réu, área, responsável), <b>quando</b> tento salvar, <b>então</b> vejo validações por campo.</li>
+<li>Grava data/hora e usuário autor do cadastro.</li>
+</ul></div>
+<p class="note"><b>Tarefas:</b> UI do formulário · validações · endpoint de criação · checagem de duplicidade · testes.</p>
+</div>
+
+<div class="story">
+<div class="id">US-05 · Listar e buscar processos <span class="sp">5 SP</span></div>
+<div class="quote">Como advogado, quero listar e buscar processos por número, parte, responsável ou status, para localizar rapidamente o que preciso.</div>
+<p><b>Descrição complementar:</b> tela inicial pós-login (landing da Sprint 1). Lista paginada com busca por texto e filtros por status e área.</p>
+<div class="ac gherkin"><b>Critérios de aceitação:</b>
+<ul>
+<li><b>Dado</b> processos cadastrados, <b>quando</b> acesso a lista, <b>então</b> vejo número, partes, área, responsável e status, paginados.</li>
+<li><b>Dado</b> um termo, <b>quando</b> busco, <b>então</b> a lista filtra por número/parte/responsável.</li>
+<li><b>Dado</b> filtros de status e área, <b>quando</b> aplico, <b>então</b> a lista é refinada.</li>
+<li>A busca responde em &lt; 2s na base de homologação (RNF de desempenho).</li>
+</ul></div>
+<p class="note"><b>Tarefas:</b> UI lista + busca/filtros · endpoint de listagem com paginação · índice de busca · testes.</p>
+</div>
+
+<div class="story">
+<div class="id">US-06 · Visualizar detalhe do processo <span class="sp">3 SP</span></div>
+<div class="quote">Como advogado, quero abrir um processo e ver seus dados, andamentos e prazos, para ter o panorama completo antes de uma audiência.</div>
+<div class="ac gherkin"><b>Critérios de aceitação:</b>
+<ul>
+<li><b>Dado</b> um processo, <b>quando</b> abro o detalhe, <b>então</b> vejo dados cadastrais, a linha do tempo de andamentos e os prazos.</li>
+<li>A partir do detalhe consigo acionar "Novo andamento".</li>
+<li>A tela carrega em &lt; 2s (RNF de desempenho).</li>
+</ul></div>
+<p class="note"><b>Tarefas:</b> UI de detalhe · endpoint de leitura agregada · navegação a partir da lista · testes.</p>
+</div>
+
+<div class="story">
+<div class="id">US-09 · Registrar andamento <span class="sp">5 SP</span></div>
+<div class="quote">Como advogado ou estagiário, quero registrar um andamento em um processo, para manter o histórico atualizado e auditável.</div>
+<p><b>Descrição complementar:</b> modal acionado pelo detalhe. Campos: data, tipo (despacho, audiência,
+juntada, decisão, outro), descrição. Autor e data/hora de registro automáticos.</p>
+<div class="ac gherkin"><b>Critérios de aceitação:</b>
+<ul>
+<li><b>Dado</b> um processo aberto, <b>quando</b> registro (data, tipo, descrição), <b>então</b> aparece no topo da linha do tempo imediatamente.</li>
+<li><b>Dado</b> descrição vazia, <b>quando</b> tento salvar, <b>então</b> vejo a validação de obrigatoriedade.</li>
+<li><b>Dado</b> data futura, <b>quando</b> tento salvar, <b>então</b> o sistema rejeita.</li>
+<li>Autor e data/hora de registro são gravados (auditoria — RNF).</li>
+</ul></div>
+<p class="note"><b>Tarefas:</b> UI do andamento · validações · endpoint de criação · vínculo ao processo · testes.</p>
+</div>
+
+<div class="story">
+<div class="id">US-10 · Visualizar linha do tempo de andamentos <span class="sp">3 SP</span></div>
+<div class="quote">Como advogado, quero ver os andamentos em ordem cronológica, para entender a evolução do processo.</div>
+<div class="ac gherkin"><b>Critérios de aceitação:</b>
+<ul>
+<li><b>Dado</b> andamentos cadastrados, <b>quando</b> abro o detalhe, <b>então</b> vejo-os do mais recente ao mais antigo (data, tipo, autor, descrição).</li>
+<li><b>Dado</b> um processo sem andamentos, <b>quando</b> abro o detalhe, <b>então</b> vejo um estado vazio orientando a registrar o primeiro.</li>
+<li>A linha do tempo carrega em &lt; 2s (RNF de desempenho).</li>
+</ul></div>
+<p class="note"><b>Tarefas:</b> UI linha do tempo · ordenação/paginação · estado vazio · testes.</p>
+</div>
+
+<div class="pagebreak"></div>
+<h1 class="sec">4. Capacidade e planejamento</h1>
+<table>
+<thead><tr><th>Pessoa</th><th>Papel</th><th>Dedicação</th><th>SP / responsabilidade</th></tr></thead>
+<tbody>
+<tr><td>Carla</td><td>Dev Sênior</td><td>100%</td><td>13 SP (ENB-01, US-01, US-05, US-09)</td></tr>
+<tr><td>Diego</td><td>Dev Pleno</td><td>100%</td><td>13 SP (US-02, US-04, US-06, US-10)</td></tr>
+<tr><td>Elena</td><td>Designer/QA</td><td>100%</td><td>Wireframes + QA de todas as histórias (RNF de usabilidade)</td></tr>
+<tr><td>Ana</td><td>Product Owner</td><td>50%</td><td>Refinamento, aceite, validação com sócios</td></tr>
+<tr><td>Bruno</td><td>Scrum Master</td><td>50%</td><td>Facilitação, remoção de impedimentos</td></tr>
+</tbody></table>
+
+<h2 class="sub">Cerimônias</h2>
+<ul>
+<li><b>Planning:</b> 22/06 (meta + seleção + breakdown).</li>
+<li><b>Daily:</b> 15 min, todo dia útil.</li>
+<li><b>Review:</b> 03/07 (demo do fluxo ponta a ponta para os sócios).</li>
+<li><b>Retrospective:</b> 03/07 (ajuste de processo e recalibração da velocidade).</li>
+</ul>
+
+<h2 class="sub">Riscos / dependências</h2>
+<ul>
+<li>ENB-01 é pré-requisito de todas as histórias → priorizado no dia 1.</li>
+<li>Wireframes (Elena) devem estar prontos no início para não bloquear o front-end.</li>
+<li>Definição dos "tipos de andamento" depende de validação da PO (Ana) — combinar no Planning.</li>
+</ul>
+
+</body></html>

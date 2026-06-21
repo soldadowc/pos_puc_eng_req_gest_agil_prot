@@ -1,0 +1,34 @@
+@page { size: A4; margin: 16mm 14mm; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", Arial, sans-serif; color: #212529; font-size: 11pt; line-height: 1.45; }
+.cover { text-align: center; padding-top: 60mm; page-break-after: always; }
+.cover .badge { display:inline-block; border:2px solid #495057; border-radius:6px; padding:6px 14px; letter-spacing:2px; font-size:10pt; color:#495057; text-transform:uppercase; }
+.cover h1 { font-size: 30pt; margin: 20px 0 6px; color:#212529; }
+.cover h2 { font-size: 15pt; font-weight: 400; color:#495057; margin-bottom: 30px; }
+.cover .meta { font-size: 11pt; color:#868e96; line-height: 1.8; }
+h1.sec { font-size: 17pt; color:#212529; border-bottom: 3px solid #495057; padding-bottom: 6px; margin: 26px 0 12px; page-break-after: avoid; }
+h2.sub { font-size: 13.5pt; color:#343a40; margin: 20px 0 8px; page-break-after: avoid; }
+h3.sub3 { font-size: 12pt; color:#343a40; margin: 16px 0 6px; page-break-after: avoid; background:#f1f3f5; padding:6px 10px; border-left:4px solid #868e96; }
+p { margin: 6px 0; }
+ul, ol { margin: 6px 0 6px 22px; }
+li { margin: 3px 0; }
+table { width: 100%; border-collapse: collapse; margin: 10px 0 16px; font-size: 9.5pt; page-break-inside: avoid; }
+th, td { border: 1px solid #ced4da; padding: 6px 8px; text-align: left; vertical-align: top; }
+thead th { background: #495057; color: #fff; font-weight: 600; }
+tbody tr:nth-child(even) { background: #f8f9fa; }
+code, .mono { font-family: Consolas, monospace; font-size: 9.5pt; }
+pre { background:#f1f3f5; border:1px solid #dee2e6; border-radius:4px; padding:10px; font-family:Consolas,monospace; font-size:8.5pt; line-height:1.35; white-space:pre; overflow:hidden; page-break-inside: avoid; }
+.tag { display:inline-block; padding:1px 8px; border-radius:10px; font-size:8.5pt; color:#fff; }
+.must{background:#c0392b}.should{background:#e67e22}.could{background:#f1c40f;color:#333}.wont{background:#95a5a6}
+.sp { display:inline-block; background:#495057; color:#fff; border-radius:4px; padding:1px 8px; font-size:9pt; font-weight:600; }
+.story { border:1px solid #dee2e6; border-radius:6px; padding:12px 14px; margin:12px 0; page-break-inside: avoid; }
+.story .id { font-weight:700; color:#212529; font-size:11.5pt; }
+.story .quote { background:#f1f3f5; border-left:4px solid #adb5bd; padding:8px 12px; margin:8px 0; font-style:italic; color:#343a40; }
+.story .ac { margin-top:6px; }
+.story .ac b { color:#343a40; }
+.gherkin b { color:#2c3e50; }
+.note { font-size:9.5pt; color:#868e96; }
+.dod-block { background:#f8f9fa; border:1px solid #dee2e6; border-radius:6px; padding:10px 14px; margin:10px 0; }
+.rnf { background:#fff3cd; border-left:4px solid #e67e22; padding:8px 12px; margin:10px 0; }
+.pagebreak { page-break-before: always; }
+.kpi { font-weight:700; }
