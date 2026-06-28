@@ -35,21 +35,32 @@
 
 ## Passo 3 — Mapear as colunas (parte mais importante)
 
-Marque "Map field value" só se quiser ajustar valores; para a maioria, apenas relacione coluna → campo:
+**O que é "mapear":** o JIRA mostra cada **coluna do seu arquivo CSV** e pergunta a qual **campo do
+JIRA** ela corresponde. Você só relaciona um a um. Como o JIRA está em **português**, escolha assim:
 
-| Coluna do CSV | Campo do JIRA |
-|---------------|----------------|
-| `Issue Type` | **Issue Type** |
-| `Summary` | **Summary** |
-| `Description` | **Description** |
-| `Priority` | **Priority** |
-| `Story Points` | **Story point estimate** *(team-managed)* **/ Story Points** *(company-managed)* |
-| `Epic Link` | **Epic Link** *(company-managed)* **/ Parent** *(team-managed)* |
-| `Labels` (as 3 colunas) | **Labels** (mapeie as três para Labels) |
+| Coluna do CSV | Campo no JIRA (em inglês) | Campo no JIRA (em português) |
+|---------------|---------------------------|-------------------------------|
+| `Issue Type` | Issue Type | **Tipo de item** (ou "Tipo de item de trabalho") |
+| `Summary` | Summary | **Resumo** |
+| `Description` | Description | **Descrição** |
+| `Priority` | Priority | **Prioridade** |
+| `Story Points` | Story point estimate / Story Points | **Estimativa de pontos de história** (ou "Story Points") |
+| `Epic Link` | Parent / Epic Link | **Item primário** / **Pai** *(equipe)* ou **Link de épico** *(empresa)* |
+| `Labels` | Labels | **Etiquetas** (uma única coluna) |
 
-> ⚠️ **Atenção ao tipo de projeto:**
-> - **Company-managed:** mapeie `Epic Link` → **Epic Link** e `Story Points` → **Story Points**.
-> - **Team-managed:** mapeie `Epic Link` → **Parent** e `Story Points` → **Story point estimate**.
+> 🏷️ **Se o campo "Etiquetas" NÃO aparecer na lista de campos do JIRA:** isso significa que o campo de
+> etiquetas não está ativado no seu projeto. As etiquetas são **opcionais** (não são exigidas pela
+> rubrica) — basta deixar a coluna `Labels` como **"Não mapear este campo"** e seguir com a importação.
+> Tudo o mais (épicos, histórias, prioridade, pontos, critérios) é importado normalmente.
+> Se quiser as etiquetas mesmo assim: ative o campo em *Configurações do projeto → Campos* (ou crie
+> uma etiqueta manualmente em qualquer item, o que costuma habilitar o campo).
+
+> ⚠️ **Como saber o tipo do seu projeto:** no **rodapé da barra lateral esquerda** aparece:
+> - **"Projeto gerenciado pela equipe"** (team-managed) → use **Item primário/Pai** e **Estimativa de pontos de história**.
+> - **"Projeto gerenciado pela empresa"** (company-managed) → use **Link de épico** e **Story Points**.
+>
+> Se o campo de pontos não aparecer na lista, importe sem ele e preencha depois, ou ative em
+> *Configurações do quadro → Estimativa → Story Points*.
 
 Clique em **Next** e depois em **Begin Import**.
 
