@@ -38,15 +38,20 @@
 **O que é "mapear":** o JIRA mostra cada **coluna do seu arquivo CSV** e pergunta a qual **campo do
 JIRA** ela corresponde. Você só relaciona um a um. Como o JIRA está em **português**, escolha assim:
 
-| Coluna do CSV | Campo no JIRA (em inglês) | Campo no JIRA (em português) |
-|---------------|---------------------------|-------------------------------|
-| `Issue Type` | Issue Type | **Tipo de item** (ou "Tipo de item de trabalho") |
-| `Summary` | Summary | **Resumo** |
-| `Description` | Description | **Descrição** |
-| `Priority` | Priority | **Prioridade** |
-| `Story Points` | Story point estimate / Story Points | **Estimativa de pontos de história** (ou "Story Points") |
-| `Epic Link` | Parent / Epic Link | **Item primário** / **Pai** *(equipe)* ou **Link de épico** *(empresa)* |
-| `Labels` | Labels | **Etiquetas** (uma única coluna) |
+> 🆕 **Importante:** o JIRA novo monta a hierarquia por **IDs** (não pelo nome do épico). Por isso o CSV
+> tem as colunas `Issue ID` e `Parent ID`. Cada linha tem um número único (`Issue ID`) e cada história
+> aponta para o ID do seu épico em `Parent ID` (épicos 1=MVP, 2=Incremento 1, 3=Incremento 2).
+
+| Coluna do CSV | Campo no JIRA (em português) |
+|---------------|-------------------------------|
+| `Issue ID` | **ID do ticket** |
+| `Parent ID` | **ID pai** |
+| `Issue Type` | **Tipo do ticket** (ou "Tipo de item") |
+| `Summary` | **Resumo** |
+| `Description` | **Descrição** |
+| `Priority` | **Prioridade** |
+| `Story Points` | **Estimativa de pontos de história** (ou "Story Points") |
+| `Labels` | **Etiquetas** — *se não existir no seu JIRA, deixe sem mapear* |
 
 > 🏷️ **Se o campo "Etiquetas" NÃO aparecer na lista de campos do JIRA:** isso significa que o campo de
 > etiquetas não está ativado no seu projeto. As etiquetas são **opcionais** (não são exigidas pela
