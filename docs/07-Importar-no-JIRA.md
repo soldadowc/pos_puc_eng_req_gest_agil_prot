@@ -38,14 +38,13 @@
 **O que é "mapear":** o JIRA mostra cada **coluna do seu arquivo CSV** e pergunta a qual **campo do
 JIRA** ela corresponde. Você só relaciona um a um. Como o JIRA está em **português**, escolha assim:
 
-> 🆕 **Importante:** o JIRA novo monta a hierarquia por **IDs** (não pelo nome do épico). Por isso o CSV
-> tem as colunas `Issue ID` e `Parent ID`. Cada linha tem um número único (`Issue ID`) e cada história
-> aponta para o ID do seu épico em `Parent ID` (épicos 1=MVP, 2=Incremento 1, 3=Incremento 2).
+> ✅ **Abordagem usada (mais simples e à prova de erro):** o CSV **não** traz colunas de ID/hierarquia,
+> para não disparar o erro "IDs do ticket faltantes". Importamos os 24 itens "planos" (3 épicos + 21
+> histórias) e depois **ligamos as histórias aos épicos** com um arrastar de mouse (Passo 4). Cada
+> história tem no título a marca `[Epico: MVP]` ou `[Epico: Incremento 1]` para você saber onde ligar.
 
 | Coluna do CSV | Campo no JIRA (em português) |
 |---------------|-------------------------------|
-| `Issue ID` | **ID do ticket** |
-| `Parent ID` | **ID pai** |
 | `Issue Type` | **Tipo do ticket** (ou "Tipo de item") |
 | `Summary` | **Resumo** |
 | `Description` | **Descrição** |
@@ -53,41 +52,33 @@ JIRA** ela corresponde. Você só relaciona um a um. Como o JIRA está em **port
 | `Story Points` | **Estimativa de pontos de história** (ou "Story Points") |
 | `Labels` | **Etiquetas** — *se não existir no seu JIRA, deixe sem mapear* |
 
-> 🏷️ **Se o campo "Etiquetas" NÃO aparecer na lista de campos do JIRA:** isso significa que o campo de
-> etiquetas não está ativado no seu projeto. As etiquetas são **opcionais** (não são exigidas pela
-> rubrica) — basta deixar a coluna `Labels` como **"Não mapear este campo"** e seguir com a importação.
-> Tudo o mais (épicos, histórias, prioridade, pontos, critérios) é importado normalmente.
-> Se quiser as etiquetas mesmo assim: ative o campo em *Configurações do projeto → Campos* (ou crie
-> uma etiqueta manualmente em qualquer item, o que costuma habilitar o campo).
+> 🏷️ As etiquetas são **opcionais** (não exigidas pela rubrica). Se não houver o campo, deixe a coluna
+> `Labels` sem mapear e siga.
 
-> ⚠️ **Como saber o tipo do seu projeto:** no **rodapé da barra lateral esquerda** aparece:
-> - **"Projeto gerenciado pela equipe"** (team-managed) → use **Item primário/Pai** e **Estimativa de pontos de história**.
-> - **"Projeto gerenciado pela empresa"** (company-managed) → use **Link de épico** e **Story Points**.
->
 > Se o campo de pontos não aparecer na lista, importe sem ele e preencha depois, ou ative em
 > *Configurações do quadro → Estimativa → Story Points*.
 
 Clique em **Next** e depois em **Begin Import**.
 
-## Passo 4 — Conferir o resultado
+## Passo 4 — Ligar as histórias aos épicos (hierarquia)
 
-- Vá ao **Backlog** do projeto. Você verá os 3 épicos e, abaixo, as histórias.
-- Abra uma história (ex.: **US-09**) e confira: descrição com critérios de aceitação, **Story Points**,
-  **Priority** e **Labels** (MVP, Sprint1, F-03).
+Como importamos os itens "planos", agora ligamos cada história ao seu épico. **Regra simples:**
+- **Quase tudo é do épico MVP.** Só **US-16, US-17, US-18 e US-19** são do épico **Incremento 1**.
+- O épico **Incremento 2** fica sem histórias (é visão de futuro). Cada história tem a marca
+  `[Epico: ...]` no título para não ter dúvida.
 
----
+**Como ligar (2 cliques por história):**
+- **No Backlog:** arraste a história para dentro do épico no painel de épicos (à esquerda), **ou**
+- **Na história:** abra-a → campo **Item pai / Épico** → selecione o épico correspondente.
 
-## Se os épicos NÃO vincularem automaticamente (comum no Team-managed)
+> Dica: para ir rápido, no Backlog você pode selecionar várias histórias (Shift/Ctrl), clicar com o
+> botão direito e usar **Adicionar item pai** de uma vez.
 
-Às vezes o importador não liga as histórias aos épicos no Team-managed. Conserto rápido (2 min):
+## Passo 5 — Conferir e limpar
 
-1. Abra o **Backlog**.
-2. Selecione as histórias de um épico (use o filtro por **label**: `MVP`, `Incremento1`...).
-3. Clique com o botão direito → **Add parent** (ou arraste a história para dentro do épico no painel de
-   épicos à esquerda). Repita por épico.
-
-> Dica: a coluna **Epic Link** do CSV usa o **nome exato do épico** como valor, justamente para facilitar
-> esse vínculo manual caso necessário.
+- Confira no **Backlog**: 3 épicos com as histórias aninhadas.
+- Abra uma história (ex.: **US-09**) e verifique descrição com critérios de aceitação, **pontos** e **prioridade**.
+- (Opcional) Depois de ligar tudo, remova a marca `[Epico: ...]` dos títulos se quiser deixá-los limpos.
 
 ---
 
