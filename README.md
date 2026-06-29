@@ -37,7 +37,7 @@ e registra seus **andamentos**, com alertas de prazo e histórico auditável.
 ## ✅ O que ainda depende de você
 
 1. **Miro:** montar o board com o conteúdo de `docs/02-Lean-Inception.md`, torná-lo público e colar a URL em `canvas-url.txt`.
-2. **JIRA:** cadastrar o backlog (`docs/03`) e a Sprint 1 (`docs/04`). Os PDFs já estão prontos como versão legível — regere-os do JIRA se preferir.
+2. **JIRA:** cadastrar o backlog (`docs/03`) e a Sprint 1 (`docs/04`). Os PDFs já estão prontos como versão legível. Coloque prints do JIRA em `jira/` como evidência (ver `jira/README.md`).
 3. **Figma:** os wireframes em `wireframes/` já são imagens utilizáveis; refine no Figma se desejar e reexporte.
 4. **Vídeo:** grave seguindo `docs/06-Roteiro-Video.md` (2–4 min) e inclua o arquivo (ou a URL em `VIDEO-URL.txt`).
 5. **GitHub:** publique este repositório como **público** e teste a URL em janela anônima.
