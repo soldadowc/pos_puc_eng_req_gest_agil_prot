@@ -15,6 +15,7 @@ dos processos e registra seus **andamentos**, com alertas de prazo e histórico 
 | Backlog da Sprint 1 | [`sprint-backlog.pdf`](sprint-backlog.pdf) | JIRA |
 | Protótipos de interface (baixa fidelidade) | [`wireframes/`](wireframes/) | Figma |
 | Vídeo de apresentação | [`VIDEO-URL.txt`](VIDEO-URL.txt) (ou arquivo de mídia) | — |
+| Evidências do backlog no JIRA (prints) | [`Prints_Jira/`](Prints_Jira/) | JIRA |
 
 ## 🧩 Produto em uma frase
 
